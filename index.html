@@ -1,22 +1,27 @@
-<style>
-body {
-    width:500px;
-    margin:20px auto;
-}
-h1 {
-    text-align:center;
-}
-table {
-    border-collapse:collapse;
-}
-thead th {
-    text-align:left;
-}
-td {
-    width:50%;
-    border:1px solid #000;
-}
-</style>
+<html>
+    <head>
+    <title>lon, lat, lon: which map software uses which coordinate order?</title>
+    <style>
+    body {
+        width:500px;
+        margin:20px auto;
+        color:#222;
+    }
+    h1 {
+        text-align:center;
+    }
+    table {
+        border-collapse:collapse;
+    }
+    thead th {
+        text-align:left;
+    }
+    td {
+        width:50%;
+        border:1px solid #444;
+    }
+    </style>
+    </head>
 <body>
 <h1>lat lon lat lon lat lon lat</h1>
 <table width='100%'>
@@ -37,6 +42,7 @@ td {
             <li>Shapefile
             <li>WKT
             <li>WKB
+            <li>geobuf
         </ul>
     </td>
     <td>
@@ -54,12 +60,14 @@ td {
             <li>OpenLayers
             <li>d3
             <li>ArcGIS API for JavaScript
+            <li>Mapbox GL JS
         </ul>
     </td>
     <td>
         <ul>
             <li>Leaflet
             <li>Google Maps API
+            <li>Tangram
         </ul>
     </td>
 </tr>
@@ -93,6 +101,19 @@ td {
     </td>
 </tr>
 </table>
+
+<p>A frustrating inconsistency in geospatial (mapping) software is coordinate
+order. Coordinates are often represented as arrays, like <code>[-87.73, 41.83]</code>,
+instead of objects, like <code>{ lng: -87.73, lat: 41.83 }</code>. This leaves
+it up to the developer to determine whether -87.73 is the longitude or latitude.
+One choice places a point on Chicago, and the other a location deep in Antarctica.
+</p>
+
+<p>There's some consensus growing around longitude, latitude order for geospatial
+formats, but still chaos for libraries and software. It's up to
+the developer to be aware of this issue and read the requisite documentation,
+and flip coordinates if necessary to translate between different systems.</p>
+
 <h3>FAQ</h3>
 
 <dl>
