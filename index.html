@@ -123,6 +123,10 @@ and flip coordinates if necessary to translate between different systems.</p>
     <dt>What about GPX or OSM XML?</dt>
     <dd>Formats that represent lat and lon with separate XML attributes don't
     enforce any coordinate order, because XML attributes are not ordered.</dd>
+    <dt>What about GML?</dt>
+    <dd>GML doesn't make any statement about coordinate order: it allows
+    the datum to dictate the order, so some data may be longitude, latitude
+    and other data the reverse.</dd>
     <dt>Why is the cartographic tradition to put latitude first?</dt>
     <dd>There are many theories. The most convincing is that <a href='https://en.wikipedia.org/wiki/History_of_longitude'>since we were
         able to judge latitude much earlier than we could judge longitude, we put it first.</a></dd>
